@@ -1,5 +1,10 @@
 # desafio-sicred-sincronizacaoReceita
 
+**Tecnologias utilizadas:**  
+Java - 11.0.15  
+SpringBoot - 2.7.0  
+Lombok - 1.18.24  
+
 **Cenário de Negócio:**  
 Todo dia útil por volta das 6 horas da manhã um colaborador da retaguarda do Sicredi recebe e organiza as informações de contas para enviar ao Banco Central. Todas agencias e cooperativas enviam arquivos Excel à Retaguarda. Hoje o Sicredi já possiu mais de 4 milhões de contas ativas.
 Esse usuário da retaguarda exporta manualmente os dados em um arquivo CSV para ser enviada para a Receita Federal, antes as 10:00 da manhã na abertura das agências.
@@ -13,10 +18,18 @@ Usar o "serviço da receita" (fake) para processamento automático do arquivo.
 `2.` Envia a atualização para a Receita através do serviço (SIMULADO pela classe ReceitaService).  
 `3.` Retorna um arquivo com o resultado do envio da atualização da Receita. Mesmo formato adicionando o resultado em uma nova coluna.  
 
-**Formato CSV:**  
+**Formato CSV de entrada:**  
 `agencia;conta;saldo;status`  
 0101;12225-6;100,00;A  
 0101;12226-8;3200,50;A  
 3202;40011-1;-35,12;I  
 3202;54001-2;0,00;P  
 3202;00321-2;34500,00;B  
+
+**Formato CSV de saída:**  
+`agencia;conta;saldo;status;resultado`  
+0101;12225-6;100,00;A;true  
+0101;12226-8;3200,50;A;true  
+3202;40011-1;-35,12;I;true  
+3202;54001-2;0,00;P;true  
+3202;00321-2;34500,00;B;true   
